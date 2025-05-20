@@ -3,6 +3,7 @@
 
 ui_upload <- sidebarLayout(
   sidebarPanel(
+    textInput("sheet", "Data Sheet", value = "Results"),
     fileInput("file", "Data", buttonLabel = "Upload..."),
   ),
   mainPanel(

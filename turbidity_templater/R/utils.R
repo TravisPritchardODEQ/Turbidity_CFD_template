@@ -1,7 +1,7 @@
-read_data <- function(filepath){
+read_data <- function(filepath, data_sheet){
   
   data <- readxl::read_excel(filepath,
-                             sheet = "Results",
+                             sheet = data_sheet,
                              col_types = c('guess', #location
                                            'date', #date
                                            'date', #time

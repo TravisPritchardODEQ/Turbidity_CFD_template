@@ -28,7 +28,7 @@ server <- function(input, output, session) {
   raw <- reactive({
     req(input$file)
    
-    read_data(input$file$datapath)
+    read_data(input$file$datapath, input$sheet)
     
   })
   output$preview1 <- renderTable(head(raw()))

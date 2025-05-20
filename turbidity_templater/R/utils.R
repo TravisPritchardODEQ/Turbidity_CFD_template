@@ -109,3 +109,16 @@ add_comment <- function(input_data){
   
 }
 
+days_over <- function(input_data){
+  days_over_limit <- input_data |> 
+    mutate(Year = year(Activity_Start_Date)) |> 
+    group_by(Monitoring.Location.ID, Year) |> 
+    summarise(days_over_limit = n_distinct(Activity_Start_Date[Result_Value > 5])) #|> 
+    #filter(days_over_limit > 45) #|> 
+   # select(Monitoring.Location.ID) |> 
+    #pull()
+  
+  
+  
+}
+

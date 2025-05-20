@@ -20,7 +20,9 @@ ui_clean <- sidebarLayout(
   ),
   mainPanel(
     h3("Template Preview"),
-    tableOutput("preview2")
+    tableOutput("preview2"),
+    h3("Data Screen"),
+    tableOutput("preview3")
   )
 )
 

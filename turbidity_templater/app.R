@@ -56,6 +56,32 @@ server <- function(input, output, session) {
   })
   output$preview2 <- renderTable(head(tidied()))
   
+  
+  condition_days <- eventReactive(input$do, {
+    condition <- days_over(tidied())
+    
+    
+  })
+  
+  output$preview3 <- renderTable(head(condition_days()))
+  
+ 
+  
+  observeEvent(input$do, {
+    
+    data_over <-condition_days() 
+    if(any(data_over$days_over_limit > 45)){
+    
+    showModal(modalDialog(
+      title = "High Turbidity Days",
+      "One or more years has > 45 days of greater than 5 NTU",
+      easyClose = TRUE,
+      footer = NULL
+    ))
+    
+  }
+  })
+  
 
   
   # Download -------------------------------------------------------
